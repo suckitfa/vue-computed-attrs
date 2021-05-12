@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>原始字符串:{{message}}</p>
+        <p>表达式实现反转:{{message.split('').reverse().join('')}}</p>
+        <p>计算属性反转:{{reversedMessage}}</p>
+        <p>在Vue的方法中实现：{{reversedMessageMethod()}}</p>
+
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Hello World"
+            },
+            computed: {
+                reversedMessage() {
+                    return this.message.split('').reverse().join('');
+                }
+            },
+            methods: {
+                reversedMessageMethod() {
+                    return this.message.split('').reverse().join('');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
