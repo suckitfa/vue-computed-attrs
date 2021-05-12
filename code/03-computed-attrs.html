@@ -10,31 +10,31 @@
 
 <body>
     <div id="app">
-        <p><input type="text" v-model="message" placeholder="输入文字"></p>
-        <p>原始字符串:{{message}}</p>
-        <p>表达式实现反转:{{message.split('').reverse().join('')}}</p>
-        <p>计算属性反转:{{reversedMessage}}</p>
-        <p>在Vue的方法中实现：{{reversedMessageMethod()}}</p>
-
+        <p>{{reversedMessage}}</p>
+        <p>{{reversedMessage2()}}</p>
     </div>
     <script src="../node_modules/vue/dist/vue.js"></script>
     <script>
         const app = new Vue({
             el: "#app",
-            data: {
-                message: "Hello World"
-            },
             computed: {
                 reversedMessage() {
+                    alert("计算属性");
                     return this.message.split('').reverse().join('');
                 }
             },
+            data: {
+                message: "Hello World"
+            },
             methods: {
-                reversedMessageMethod() {
+                reversedMessage2() {
+                    alert("Vue实例方法");
                     return this.message.split('').reverse().join('');
                 }
             }
         });
+        let msg = app.reversedMessage;
+        msg = app.reversedMessage2();
     </script>
 </body>
 
